@@ -16,7 +16,6 @@ const app = express();
 dotenv.config();
 
 // Retrieve environment variables
-const port = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
 
 // ===================== Middlewares =====================
@@ -73,8 +72,6 @@ app.get("/", (req, res) => {
   res.send("Backend Server is Running....");
 });
 
-// ===================== Start the Server =====================
-// Start the server and listen on the specified port
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// ===================== Export the App for Vercel =====================
+// Export the Express app for Vercel serverless deployment
+export default app;
